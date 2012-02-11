@@ -1,4 +1,5 @@
 # RLicker
+[![Build Status](https://secure.travis-ci.org/ben-biddington/rlicker.png)](http://travis-ci.org/ben-biddington/rlicker)
 
 Why should I have to subscribe to one particular browser driver? Each seems to have incompatible DSLs and different ideas about abstraction. Changing from one to the other is a non-trivial exercise. 
 
