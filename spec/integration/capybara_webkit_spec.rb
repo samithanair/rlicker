@@ -22,7 +22,7 @@ include RLicker
 
 shared_examples_for "a window licker" do 
   it "can open an earl" do
-    licker.goto "spec/integration/samples/licker_test.html"
+    lambda{licker.goto "spec/integration/samples/licker_test.html"}.must_not raise_error
   end
 
   it "after opening an earl, it exposes it" do
