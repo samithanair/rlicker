@@ -14,6 +14,7 @@ module RLicker
       end
       
       def url; @browser.url; end 
+      def pid; @browser.instance_variable_get :@pid; end 
     end
   end
 end
@@ -32,7 +33,10 @@ shared_examples_for "a window licker" do
 
   it "you can set a base earl and then use relative ones"
   it "after closing it, the process is no longer running"
-  it "exposes its pid somehow"
+  
+  it "exposes its pid somehow" do
+    Process.getpgid(licker.pid).must_not be_nil
+  end
 end
 
 describe "The capybara-webkit implementation" do
