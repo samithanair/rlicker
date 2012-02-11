@@ -20,14 +20,12 @@ end
 
 include RLicker
 
-describe "The capybara-webkit implementation" do
+shared_examples_for "a window licker" do 
   it "can open an earl" do
-    licker = Lickers::CapybaraWebkitLicker.new
     licker.goto "spec/integration/samples/licker_test.html"
   end
 
   it "after opening an earl, it exposes it" do
-    licker = Lickers::CapybaraWebkitLicker.new
     licker.goto "spec/integration/samples/licker_test.html"
     licker.url.must match %r{licker_test.html$}
   end
@@ -35,4 +33,9 @@ describe "The capybara-webkit implementation" do
   it "you can set a base earl and then use relative ones"
   it "after closing it, the process is no longer running"
   it "exposes its pid somehow"
+end
+
+describe "The capybara-webkit implementation" do
+  let(:licker) { Lickers::CapybaraWebkitLicker.new }
+  it_behaves_like "a window licker"
 end
