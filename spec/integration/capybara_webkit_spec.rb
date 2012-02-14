@@ -53,21 +53,23 @@ shared_examples_for "a window licker" do
     licker.url.must match %r{licker_test.html$}
   end
 
-  it "can locate an element by id" do
-    earl = "spec/integration/samples/licker_test.html"
-    given earl => <<-HTML
-      <div id="phils-bike-seat"></div>
-    HTML
-
-    licker.goto earl
-    licker.find_by_id("phils-bike-seat").must_not be_nil
-  end
-
   it "you can set a base earl and then use relative ones"
   it "after closing it, the process is no longer running"
   
   it "exposes its pid somehow" do
     Process.getpgid(licker.pid).must_not be_nil
+  end
+
+  context "locating elements" do
+    it "can locate an element by id" do
+      earl = "spec/integration/samples/licker_test.html"
+      given earl => <<-HTML
+        <div id="phils-bike-seat"></div>
+      HTML
+      
+      licker.goto earl
+      licker.find_by_id("phils-bike-seat").must_not be_nil
+    end
   end
 end
 
