@@ -37,10 +37,18 @@ shared_examples_for "a window licker" do
   include Given
 
   it "can open an earl" do
+    earl = "spec/integration/samples/licker_test.html"
+
+    given earl => ""
+
     lambda{licker.goto "spec/integration/samples/licker_test.html"}.must_not raise_error
   end
 
-  it "after opening an earl, it exposes it" do
+  it "after opening an earl it exposes it" do
+    earl = "spec/integration/samples/licker_test.html"
+
+    given earl => ""
+
     licker.goto "spec/integration/samples/licker_test.html"
     licker.url.must match %r{licker_test.html$}
   end
