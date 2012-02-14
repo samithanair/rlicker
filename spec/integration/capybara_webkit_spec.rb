@@ -17,7 +17,7 @@ module RLicker
       def pid; @browser.instance_variable_get :@pid; end 
       
       def find_by_id(id)
-        @browser.find "//div[@id='#{id}']"
+        @browser.find "//*[@id='#{id}']"
       end
     end
   end
@@ -69,6 +69,17 @@ shared_examples_for "a window licker" do
       
       licker.goto earl
       licker.find_by_id("phils-bike-seat").must_not be_nil
+    end
+    
+    it "returns all elements with id(, whatever their tagname)" do
+      earl = "spec/integration/samples/licker_test.html"
+      given earl => <<-HTML
+        <div id="phils-bike-seat"></div>
+        <span id="phils-bike-seat"></span>
+      HTML
+      
+      licker.goto earl
+      licker.find_by_id("phils-bike-seat").size.must == 2
     end
   end
 end
