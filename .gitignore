@@ -1,2 +1,2 @@
-spec/integration/samples
+spec/integration/samples/*.html
 .rspec
