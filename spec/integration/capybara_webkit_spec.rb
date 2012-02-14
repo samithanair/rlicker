@@ -47,7 +47,7 @@ shared_examples_for "a window licker" do
 
   it "can locate an element by id" do
     earl = "spec/integration/samples/licker_test.html"
-    given "spec/integration/samples/licker_test.html" => <<-HTML
+    given earl => <<-HTML
       <div id="phils-bike-seat"></div>
     HTML
 
