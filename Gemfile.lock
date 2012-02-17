@@ -56,4 +56,5 @@ DEPENDENCIES
   capybara-webkit
   rake
   rspec
+  selenium-webdriver
   travis-lint
