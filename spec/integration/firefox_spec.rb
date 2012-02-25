@@ -21,12 +21,8 @@ module Lickers
       @driver.current_url
     end
 
-    def pid
-      bridge = @driver.instance_variable_get(:@bridge)
-      launcher = bridge.instance_variable_get(:@launcher)
-      binary = launcher.instance_variable_get(:@binary)
-      process = binary.instance_variable_get(:@process)
-      process.pid
+    def close
+      @driver.close
     end
   end
 end

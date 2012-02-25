@@ -12,7 +12,8 @@ module RLicker
       end
       
       def url; @browser.url; end 
-      def pid; @browser.instance_variable_get :@pid; end 
+
+      def close; end
       
       def find_by_id(id)
         @browser.find "//*[@id='#{id}']"

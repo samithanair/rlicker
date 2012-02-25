@@ -31,6 +31,10 @@ end
 shared_examples_for "a window licker" do 
   include Given
 
+  after do
+    licker.close
+  end
+
   it "can open an earl" do
     earl = map "spec/integration/samples/licker_test.html"
 
@@ -49,10 +53,9 @@ shared_examples_for "a window licker" do
   end
 
   it "you can set a base earl and then use relative ones"
-  it "after closing it, the process is no longer running"
   
-  it "exposes its pid somehow" do
-    Process.getpgid(licker.pid).must_not be_nil
+  it "you can close it" do
+    lambda{licker.close}.must_not raise_error
   end
 
   private 
