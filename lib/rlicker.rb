@@ -1,4 +1,13 @@
 module RLicker
+  module Forwarding
+    def forward(method, to)
+      define_method method do
+        target = instance_variable_get to
+        target.send method
+      end
+    end
+  end
+
   module Lickers
     class CapybaraWebkitLicker
       require "capybara-webkit"
