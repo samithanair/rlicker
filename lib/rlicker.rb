@@ -11,6 +11,7 @@ module RLicker
   module Lickers
     class CapybaraWebkitLicker
       require "capybara-webkit"
+      extend Forwarding
 
       def initialize
         @browser = Capybara::Driver::Webkit::Browser.new
@@ -20,7 +21,7 @@ module RLicker
         @browser.visit earl
       end
       
-      def url; @browser.url; end 
+      forward(:url){@browser}
 
       def close; end
       

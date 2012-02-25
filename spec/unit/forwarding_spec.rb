@@ -11,7 +11,7 @@ describe Forwarding do
     example_class = Class.new do
       extend Forwarding
       
-      forward :ben_rules do; @inner; end
+      forward(:ben_rules) { @inner }
 
       def initialize(inner)
         @inner = inner
