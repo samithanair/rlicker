@@ -58,6 +58,8 @@ shared_examples_for "a window licker" do
     lambda{licker.close}.must_not raise_error
   end
 
+  pending "closing twice does not throw error either"
+
   private 
 
   def map(relative_earl)
