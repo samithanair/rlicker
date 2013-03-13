@@ -14,14 +14,14 @@ module RLicker
       extend Forwarding
 
       def initialize
-        @browser = Capybara::Driver::Webkit::Browser.new
+        @browser = Capybara::Webkit::Browser.new Capybara::Webkit::Connection.new
       end
 
       def goto(earl)
         @browser.visit earl
       end
       
-      forward(:url){@browser}
+      def url; @browser.current_url; end
 
       def close; end
       
