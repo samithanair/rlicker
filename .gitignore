@@ -1,2 +1,4 @@
 spec/integration/samples/*.html
 .rspec
+chromedriver.log
+*.swp
