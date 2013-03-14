@@ -4,9 +4,9 @@ module RLicker
       require "capybara-webkit"
 
       def initialize
-				connection = Capybara::Webkit::Connection.new       
-				@pid = connection.instance_variable_get :@pid 
-				@browser = Capybara::Webkit::Browser.new connection 
+        connection = Capybara::Webkit::Connection.new       
+        @pid = connection.instance_variable_get :@pid 
+        @browser = Capybara::Webkit::Browser.new connection 
       end
 
       def goto(earl)
