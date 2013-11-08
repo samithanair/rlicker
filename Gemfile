@@ -1,5 +1,9 @@
 source "https://rubygems.org" 
 
+gem "sauce"
+gem "sauce-connect"
+gem "audible"
+
 group :test do
       gem "rake"
       gem "rspec"
