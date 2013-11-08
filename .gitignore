@@ -1,2 +1,3 @@
 spec/integration/samples/*.html
 .rspec
+*.log

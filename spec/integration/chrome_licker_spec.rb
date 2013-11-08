@@ -21,7 +21,7 @@ module Lickers
       result << browser.div(:id, id); 
       result << browser.span(:id, id);
       
-      result.reject{|it| false == it.exists?}
+      result.select{|it| it.exists?}
     end
 
     def screenshot; fail "Not supported."; end
