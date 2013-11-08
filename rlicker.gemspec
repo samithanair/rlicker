@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rlicker}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Ben Biddington}]
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/rlicker/capybara_webkit_licker.rb",
     "lib/rlicker/chrome_licker.rb",
     "lib/rlicker/sauce_labs_licker.rb",
+    "rlicker.gemspec",
     "spec/integration/capybara_webkit_spec.rb",
     "spec/integration/chrome_licker_spec.rb",
     "spec/integration/given.rb",
