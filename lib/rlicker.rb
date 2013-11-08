@@ -27,9 +27,17 @@ module RLicker
   module Lickers
     class SauceLabsSettings
       class << self
-        def username; ENV["sauce_labs_username"]; end
-        def access_key; ENV["sauce_labs_accesskey"]; end
-        def job_name; ENV["sauce_labs_job_name"]; end
+        def username; setting_called "sauce_labs_username"; end
+        def access_key; setting_called "sauce_labs_accesskey"; end
+        def job_name; setting_called "sauce_labs_job_name"; end
+
+        private
+
+        def setting_called(name)
+          ENV[name].tap{fail "You must supply the <#{name}> environment variable." unless exists?(name)}
+        end
+
+        def exists?(name) ENV.include? name; end
       end
     end
 

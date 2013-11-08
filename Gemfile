@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "sauce"
 gem "sauce-connect"
 gem "audible"
+gem "watir-webdriver"
 
 group :test do
       gem "rake"
