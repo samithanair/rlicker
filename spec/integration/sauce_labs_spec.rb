@@ -1,10 +1,8 @@
 require "spec_helper"
 require "integration/shared_examples/window_licker"
 
-include RLicker
-
 describe "The saucelabs implementation" do
-  let(:licker) { Lickers::SauceLabsLicker.new }
+  let(:licker) { RLicker::Lickers::SauceLabsLicker.new }
 
   it "can locate elements by id" do
     licker.goto "http://www.bbc.co.uk"
