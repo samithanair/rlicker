@@ -47,3 +47,7 @@ pkg
 
 # For rubinius:
 #*.rbc
+
+spec/integration/samples/*.html
+.rspec
+*.log
