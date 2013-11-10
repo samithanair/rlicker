@@ -7,17 +7,10 @@ module RLicker
   
       alias :goto :visit
     
-      def find_by_id(id) # todo: try a chain
-        result = []
-      
-        result << browser.text_field(:id, id);
-        result << browser.button(:id, id);
-        result << browser.form(:id, id);
-        result << browser.link(:id, id);
-        result << browser.div(:id, id); 
-        result << browser.span(:id, id);
-      
-        result.select{|it| it.exists?}
+      def find_by_id(id)
+        [:text_field, :button, :form, :link, :div, :span].map do |element_type|
+          browser.send(element_type, :id, id)
+        end.select{|it| it.exists?}
       end
 
       def screenshot; fail "Not supported."; end
