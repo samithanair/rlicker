@@ -58,7 +58,7 @@ module RLicker
       private
 
       def starts_with_scheme
-        @value.start_with? /http/
+        @value.start_with? "http"
       end
     end
   end
