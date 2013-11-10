@@ -19,6 +19,14 @@ module RLicker
       def find_by_id(id)
         @browser.find "//*[@id='#{id}']"
       end
+
+      def evaluate_script(what)
+        @browser.evaluate_script what 
+      end
+
+      def execute_script(what)
+        @browser.execute_script what 
+      end
     end
   end
 end

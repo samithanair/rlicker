@@ -27,9 +27,11 @@ module RLicker
       def evaluate_script(what)
         browser.execute_script "javascript:#{what}"
       end
-      
-      alias :execute_script :evaluate_script
 
+      def execute_script(what)
+        browser.execute_script "javascript:#{what}"
+      end
+      
       def url; browser.url; end
     
       private

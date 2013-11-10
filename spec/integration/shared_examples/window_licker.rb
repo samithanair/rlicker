@@ -3,6 +3,28 @@ require "integration/given"
 
 include RLicker
 
+shared_examples_for "a window licker that can execute javascript" do
+  it "can EXECUTE javascript with a return statement" do
+    earl = "https://www.google.com/"
+
+    licker.goto earl
+
+    result = licker.execute_script "return document.title"
+    
+    result.must match /Google/
+  end
+
+  it "can EVALUATE javascript" do
+    earl = "https://www.google.com/"
+
+    licker.goto earl
+
+    result = licker.evaluate_script "document.title"
+
+    result.must match /Google/
+  end
+end
+
 shared_examples_for "a window licker that can locate elements" do
   include Given
 
