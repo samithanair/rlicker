@@ -1,6 +1,8 @@
 module RLicker
   module Lickers
     class ChromeLicker
+      require "audible"; include Audible
+
       def visit(earl)
         browser.goto ChromeEarl.new(earl).to_s
       end
@@ -8,9 +10,11 @@ module RLicker
       alias :goto :visit
     
       def find_by_id(id)
-        [:text_field, :button, :form, :link, :div, :span].map do |element_type|
+        result = all.map do |element_type|
           browser.send(element_type, :id, id)
         end.select{|it| it.exists?}
+
+        result.size < 2 ? result.first : result
       end
 
       def screenshot; fail "Not supported."; end
@@ -18,7 +22,7 @@ module RLicker
       def close; @browser.close if @browser; end
 
       def evaluate_script(what)
-        browser.execute_script "javascript:#{what}"
+        execute_script what
       end
 
       def execute_script(what)
@@ -36,6 +40,10 @@ module RLicker
       end 
     
       def new_browser; @browser = Watir::Browser.new :chrome; end
+
+      def all
+        [:text_field, :button, :form, :link, :div, :span, :h1, :h2, :h3, :h4, :h5]
+      end
     end
 
     class ChromeEarl
