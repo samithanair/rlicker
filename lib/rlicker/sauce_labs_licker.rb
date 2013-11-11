@@ -18,11 +18,12 @@ module RLicker
 
     # For config: https://github.com/saucelabs/sauce_ruby/wiki/Configuration----The-(in)Complete-Guide
     class SauceLabsLicker
-      require "capybara"
-      require "sauce/capybara"
       require "audible"; include Audible
 
       def initialize
+        require "capybara"
+        require "sauce/capybara"
+
         ENV["SAUCE_USERNAME"]   = SauceLabsSettings.username
         ENV["SAUCE_ACCESS_KEY"] = SauceLabsSettings.access_key
 
