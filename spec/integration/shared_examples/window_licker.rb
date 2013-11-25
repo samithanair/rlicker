@@ -41,14 +41,14 @@ shared_examples_for "a window licker that can locate elements" do
     licker.find_by_id("phils-bike-seat").must_not be_nil
   end
     
-  it "returns all elements with id(, whatever their tagname)" do
+  it "when multiple elements have the same id it returns the first one" do
     given earl => <<-HTML
       <div id="phils-bike-seat"></div>
       <span id="phils-bike-seat"></span>
     HTML
       
     licker.goto earl
-    licker.find_by_id("phils-bike-seat").size.must == 2
+    licker.find_by_id("phils-bike-seat").must_not be_an Array
   end
 end
 

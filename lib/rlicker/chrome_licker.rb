@@ -14,7 +14,7 @@ module RLicker
           browser.send(element_type, :id, id)
         end.select{|it| it.exists?}
 
-        result.size < 2 ? result.first : result
+        result.first
       end
 
       def screenshot; fail "Not supported."; end

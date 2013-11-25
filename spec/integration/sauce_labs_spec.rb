@@ -6,8 +6,9 @@ describe "The saucelabs implementation" do
 
   it_behaves_like "a window licker that can execute javascript"
 
-  it "can locate elements by id" do
-    licker.goto "http://www.bbc.co.uk"
-    licker.find_by_id("blq-search-q").should_not be_nil
+  it "handles multiples with the same id by returning the first" do
+    licker.goto "https://login.xero.com"
+    licker.find_by_id("email").must_not be_an Array
+    licker.find_by_id("email").must_not be_nil
   end
 end
