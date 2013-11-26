@@ -16,4 +16,9 @@ describe "The saucelabs implementation" do
     licker.goto "https://login.xero.com/"
     licker.find(:href => "http://www.xero.com/about/").must_not be_nil
   end
+
+  it "returns things that are clickable" do
+    licker.goto "https://login.xero.com/"
+    licker.find(:href => "http://www.xero.com/about/").must respond_to :click
+  end
 end
