@@ -17,7 +17,7 @@ describe "The chrome implementation" do
 
     licker.goto earl
     
-    licker.find_by_id("a").must be_a Watir::Div
+    licker.find_by_id("a").text.must === "An element with id \"a\""
   end
 
   after do

@@ -43,7 +43,14 @@ module RLicker
       end
 
       def find_by_id(id)
-        driver.find_by_id(id)
+        find(:id => id)
+      end
+
+      def find(selector = {})
+        attribute_name = selector.keys.first
+        attribute_value = selector[attribute_name]
+        
+        driver.find(:xpath, "//*[@#{attribute_name}='#{attribute_value}']")
       end
 
       def goto(earl); driver.visit earl; end

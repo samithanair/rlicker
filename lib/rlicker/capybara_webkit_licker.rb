@@ -17,7 +17,13 @@ module RLicker
       def close; end
       
       def find_by_id(id)
-        @browser.find("//*[@id='#{id}']").first
+        find :id => id
+      end
+
+      def find(selector = {})
+        attribute_name = selector.keys.first
+        attribute_value = selector[attribute_name]
+        @browser.find("//*[@#{attribute_name}='#{attribute_value}']").first
       end
 
       def evaluate_script(what)

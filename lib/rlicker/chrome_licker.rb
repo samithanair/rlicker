@@ -10,11 +10,16 @@ module RLicker
       alias :goto :visit
     
       def find_by_id(id)
-        result = all.map do |element_type|
-          browser.send(element_type, :id, id)
-        end.select{|it| it.exists?}
+        find(:id => id)
+      end
 
-        result.first
+      def find(selector = {})
+        return nil if selector.empty?
+
+        attribute_name = selector.keys.first
+        attribute_value = selector[attribute_name]
+
+        browser.element(attribute_name.to_sym, attribute_value)
       end
 
       def screenshot; fail "Not supported."; end

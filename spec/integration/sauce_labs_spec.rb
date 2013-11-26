@@ -11,4 +11,9 @@ describe "The saucelabs implementation" do
     licker.find_by_id("email").must_not be_an Array
     licker.find_by_id("email").must_not be_nil
   end
+
+  it "can find elements by other attributes like class for example" do
+    licker.goto "https://login.xero.com/"
+    licker.find(:href => "http://www.xero.com/about/").must_not be_nil
+  end
 end
