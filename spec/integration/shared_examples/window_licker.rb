@@ -38,7 +38,6 @@ shared_examples_for "a window licker that can locate elements" do
     HTML
       
     licker.goto earl
-puts licker.find_by_id("phils-bike-seat").class
     licker.find_by_id("phils-bike-seat").must_not be_nil
   end
 
@@ -48,8 +47,6 @@ puts licker.find_by_id("phils-bike-seat").class
     HTML
   
     licker.goto earl
-puts licker.find_by_id("phils-bike-seat").class
-puts licker.body
     licker.find_by_id("phils-bike-seat").click
   end
   
