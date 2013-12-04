@@ -40,7 +40,6 @@ shared_examples_for "a window licker that can locate elements" do
     licker.goto earl
     licker.find_by_id("phils-bike-seat").must_not be_nil
   end
-<<<<<<< HEAD
 
   it "returns things that are clickable" do
     given earl => <<-HTML
@@ -50,8 +49,6 @@ shared_examples_for "a window licker that can locate elements" do
     licker.goto earl
     licker.find_by_id("phils-bike-seat").click
   end
-=======
->>>>>>> parent of 724c227... Deleted capybara webkit
   
   it "can locate elements by other attributes like href for example" do
     given earl => <<-HTML
