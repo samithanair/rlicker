@@ -16,9 +16,10 @@ module RLicker
       def find(selector = {})
         return nil if selector.empty?
 
-        all.map do |t|
-          t.new(browser, selector)
-        end.first
+        attribute_name = selector.keys.first
+        attribute_value = selector[attribute_name]
+
+        browser.element(attribute_name.to_sym, attribute_value)
       end
 
       def screenshot; fail "Not supported."; end
@@ -46,7 +47,7 @@ module RLicker
       def new_browser; @browser = Watir::Browser.new :chrome; end
 
       def all
-        [Watir::Div, Watir::TextField, Watir::Button, Watir::Form, Watir::Anchor, Watir::Span, Watir::Heading]
+        [:text_field, :button, :form, :link, :div, :span, :h1, :h2, :h3, :h4, :h5]
       end
     end
 
