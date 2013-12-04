@@ -10,6 +10,7 @@ gem "sauce-connect"
 gem "audible"
 gem "watir-webdriver"
 gem "capybara"
+gem "capybara-webkit", "0.14.2"
 
 group :test do
   gem "rake"
