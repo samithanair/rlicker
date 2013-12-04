@@ -61,7 +61,7 @@ shared_examples_for "a window licker that can locate elements" do
     licker.find(:href => "http://example.com").must_not be_nil
   end
 
-  it "can locate my regex matchinh attribute values"
+  it "can locate my regex matching attribute values"
   it "returns nil when attribute does not exist"
 
   it "when multiple elements have the same id it returns the first one" do

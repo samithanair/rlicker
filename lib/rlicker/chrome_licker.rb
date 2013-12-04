@@ -44,7 +44,10 @@ module RLicker
         @browser ||= new_browser
       end 
     
-      def new_browser; @browser = Watir::Browser.new :chrome; end
+      def new_browser
+        #See: http://chromedriver.storage.googleapis.com/index.html for chromedriver executable
+        @browser = Watir::Browser.new :chrome
+      end
 
       def all
         [:text_field, :button, :form, :link, :div, :span, :h1, :h2, :h3, :h4, :h5]

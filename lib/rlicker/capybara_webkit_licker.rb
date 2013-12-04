@@ -11,7 +11,6 @@ module RLicker
         @browser.visit earl
       end
       
-      def pid; @pid; end 
       def url; @browser.current_url; end
       def close; end
       

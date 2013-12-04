@@ -28,7 +28,13 @@ Jeweler::RubygemsDotOrgTasks.new
 
 require 'rspec/core/rake_task'
 
-task :default => :spec
+task :default => :ci
 
 desc "Run all tests"
 RSpec::Core::RakeTask.new
+
+desc "Run just the tests suitable for CI"
+RSpec::Core::RakeTask.new do |t|
+  t.name = :ci
+  t.pattern = "spec/integration/capybara_webkit_spec.rb"
+end
